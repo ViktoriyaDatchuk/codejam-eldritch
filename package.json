@@ -1,0 +1,28 @@
+{
+  "name": "codejam-eldritch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViktoriyaDatchuk/codejam-eldritch.git"
+  },
+  "author": "Viktoriya Datchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViktoriyaDatchuk/codejam-eldritch/issues"
+  },
+  "homepage": "https://github.com/ViktoriyaDatchuk/codejam-eldritch#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
