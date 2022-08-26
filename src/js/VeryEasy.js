@@ -1,65 +1,78 @@
 import { blueCards, brownCards, greenCards } from "../data/mythicCards";
-import { shuffle } from "./Game";
 
 export const createGreenDeckVeryEasy = (green) => {
-    let count = 0;
+    let arrayEasy = [];
+    let arrayNormal = [];
     let greenArray = [];
     greenCards.forEach(card => {
-        if (card.difficulty === 'easy' && count < green) {
-            greenArray.push(card);
-            count++;
+        if (card.difficulty === 'easy') {
+            arrayEasy.push(card);
+        } else if (card.difficulty === 'normal') {
+            arrayNormal.push(card);
         }
     })
-    if (greenArray.length < green) {
-        greenCards.forEach(card => {
-            if (card.difficulty === 'normal' && count < green) {
-                greenArray.push(card);
-                count++;
-            } 
-        })
+    if (arrayEasy.length < green) {
+        for (let i = 0; i < (green - arrayEasy.length); i++) {
+            const randomNumber = Math.floor(Math.random() * arrayNormal.length);
+            arrayEasy.push(arrayNormal[randomNumber]);
+            arrayNormal.splice(randomNumber, 1);
+        }
     }
-    shuffle(greenArray);
+    for (let i = 0; i < green; i++) {
+        const randomNumber = Math.floor(Math.random() * arrayEasy.length);
+        greenArray.push(arrayEasy[randomNumber]);
+        arrayEasy.splice(randomNumber, 1);
+    }
     return greenArray;
 }
 
 export const createBlueDeckVeryEasy = (blue) => {
-    let count = 0;
+    let arrayEasy = [];
+    let arrayNormal = [];
     let blueArray = [];
     blueCards.forEach(card => {
-        if (card.difficulty === 'easy' && count < blue) {
-            blueArray.push(card);
-            count++;
+        if (card.difficulty === 'easy') {
+            arrayEasy.push(card);
+        } else if (card.difficulty === 'normal') {
+            arrayNormal.push(card);
         }
     })
-    if (blueArray.length < blue) {
-        blueCards.forEach(card => {
-            if (card.difficulty === 'normal' && count < blue) {
-                blueArray.push(card);
-                count++;
-            } 
-        })
+    if (arrayEasy.length < blue) {
+        for (let i = 0; i < (blue - arrayEasy.length); i++) {
+            const randomNumber = Math.floor(Math.random() * arrayNormal.length);
+            arrayEasy.push(arrayNormal[randomNumber]);
+            arrayNormal.splice(randomNumber, 1);
+        }
     }
-    shuffle(blueArray);
+    for (let i = 0; i < blue; i++) {
+        const randomNumber = Math.floor(Math.random() * arrayEasy.length);
+        blueArray.push(arrayEasy[randomNumber]);
+        arrayEasy.splice(randomNumber, 1);
+    }
     return blueArray;
 }
 
 export const createBrownDeckVeryEasy = (brown) => {
-    let count = 0;
+    let arrayEasy = [];
+    let arrayNormal = [];
     let brownArray = [];
     brownCards.forEach(card => {
-        if (card.difficulty === 'easy' && count < brown) {
-            brownArray.push(card);
-            count++;
+        if (card.difficulty === 'easy') {
+            arrayEasy.push(card);
+        } else if (card.difficulty === 'normal') {
+            arrayNormal.push(card);
         }
     })
-    if (brownArray.length < brown) {
-        brownCards.forEach(card => {
-            if (card.difficulty === 'normal' && count < brown) {
-                brownArray.push(card);
-                count++;
-            } 
-        })
+    if (arrayEasy.length < brown) {
+        for (let i = 0; i < (brown - arrayEasy.length); i++) {
+            const randomNumber = Math.floor(Math.random() * arrayNormal.length);
+            arrayEasy.push(arrayNormal[randomNumber]);
+            arrayNormal.splice(randomNumber, 1);
+        }
     }
-    shuffle(brownArray);
+    for (let i = 0; i < brown; i++) {
+        const randomNumber = Math.floor(Math.random() * arrayEasy.length);
+        brownArray.push(arrayEasy[randomNumber]);
+    }  
     return brownArray;
 }

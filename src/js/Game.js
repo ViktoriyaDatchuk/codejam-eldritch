@@ -1,10 +1,10 @@
 import { setMythicCardBack } from "..";
 import ancientsData from "../data/ancients"
-import { startEasyGame } from "./Easy";
-import { startHardGame } from "./Hard";
-import { startNormalGame } from "./Normal";
+import { createBlueDeckEasy, createBrownDeckEasy, createGreenDeckEasy } from "./Easy";
+import { createBlueDeckHard, createBrownDeckHard, createGreenDeckHard } from "./Hard";
+import { createBlueDeckNormal, createBrownDeckNormal, createGreenDeckNormal } from "./Normal";
 import { createBlueDeckVeryEasy, createBrownDeckVeryEasy, createGreenDeckVeryEasy } from "./VeryEasy";
-import { startVeryHardGame } from "./VeryHard";
+import { createBlueDeckVeryHard, createBrownDeckVeryHard, createGreenDeckVeryHard } from "./VeryHard";
 
 let firstStage;
 let secondStage;
@@ -63,16 +63,23 @@ const addShuffleDeckButtonHandler = (e) => {
         greenArray = createGreenDeckVeryEasy(green);
         blueArray = createBlueDeckVeryEasy(blue);
         brownArray = createBrownDeckVeryEasy(brown);
+    } else if (difficulty === 'easy') {
+        greenArray = createGreenDeckEasy(green);
+        blueArray = createBlueDeckEasy(blue);
+        brownArray = createBrownDeckEasy(brown);
+    } else if (difficulty === 'normal') {
+        greenArray = createGreenDeckNormal(green);
+        blueArray = createBlueDeckNormal(blue);
+        brownArray = createBrownDeckNormal(brown);
+    } else if (difficulty === 'hard') {
+        greenArray = createGreenDeckHard(green);
+        blueArray = createBlueDeckHard(blue);
+        brownArray = createBrownDeckHard(brown);
+    } else {
+        greenArray = createGreenDeckVeryHard(green);
+        blueArray = createBlueDeckVeryHard(blue);
+        brownArray = createBrownDeckVeryHard(brown);
     }
-    // } else if (difficulty === 'easy') {
-    //     startEasyGame(firstStage, secondStage, thirdStage);
-    // } else if (difficulty === 'normal') {
-    //     startNormalGame(firstStage, secondStage, thirdStage);
-    // } else if (difficulty === 'hard') {
-    //     startHardGame(firstStage, secondStage, thirdStage);
-    // } else {
-    //     startVeryHardGame(firstStage, secondStage, thirdStage);
-    // }
     firstStageArray = createStage(firstStage, greenArray, blueArray, brownArray);
     secondStageArray = createStage(secondStage, greenArray, blueArray, brownArray);
     thirdStageArray = createStage(thirdStage, greenArray, blueArray, brownArray);
