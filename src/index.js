@@ -9,6 +9,9 @@ window.onload = function() {
     //DifficultyButtons
     setNamesDifficultyButtons();
 
+    //MythicCardBack
+    setMythicCardBack();
+
     //Game
     ancientClickHandler();
 }
@@ -39,20 +42,30 @@ const setNamesDifficultyButtons = () => {
     }
 }
 
+export const setMythicCardBack = () => {
+    document.querySelector('.card-deck').style.backgroundImage = `url('../src/assets/img/mythicCardBackground.png')`;
+}
+
 const ancientClickHandler = () => {
     const ancientsCards = document.querySelectorAll('.ancients-card');
-    ancientsCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const buttons = document.querySelectorAll('.difficulty-button');
-            for (but of buttons) {
-                but.classList.remove('active-button');
-            };
-            document.querySelector('.card-wrapper').classList.add('hidden');
-            for (elem of ancientsCards) {
-                elem.classList.remove('selected');
-            };
-            card.classList.add('selected');
-            startGame(card);
-        });
-    })
+    const selectCard = document.querySelector('.ancients-cards');
+    selectCard.addEventListener('click', (event) => {
+        const buttons = document.querySelectorAll('.difficulty-button');
+        for (let but of buttons) {
+            but.classList.remove('active-button');
+        }
+        document.querySelector('.card-wrapper').classList.add('hidden');
+        document.querySelector('.select-card').style.backgroundImage = 'none';
+        setMythicCardBack();
+        const stage = document.querySelectorAll('.stage-title');
+        for (let title of stage) {
+            title.style.color = 'aliceblue';
+        }
+        for (let elem of ancientsCards) {
+            elem.classList.remove('selected');
+        };
+        event.target.classList.add('selected');
+        startGame(event.target);
+    });
 }
+

@@ -127,11 +127,8 @@
     width: 150px;
     height: 207px;
     border-radius: 5px;
-  }
-
-  .card-deck {
-    background-image: url("../assets/img/mythicCardBackground.png");
     background-size: contain;
+    transition: all 1s linear;
   }
 
   .ancients-cards {
@@ -152,10 +149,9 @@
   }
   
   .selected {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
   .hidden {
-    visibility: hidden;
-    pointer-events: none;
+    display: none;
   }
