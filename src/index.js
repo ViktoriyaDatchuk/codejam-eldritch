@@ -2,6 +2,7 @@ const { default: ancientsData } = require("./data/ancients");
 const { default: difficulties } = require("./data/difficulties");
 const { startGame } = require("./js/Game");
 import "./css/style.css";
+import "./assets/img/mythicCardBackground.png";
 
 window.onload = function() {
     //AncientsImages
