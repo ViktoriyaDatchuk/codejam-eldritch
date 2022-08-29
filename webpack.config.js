@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, options) => {
     const isProduction = options.mode === 'production';
@@ -12,7 +13,8 @@ module.exports = (env, options) => {
         entry: './src/index.js',
         output: {
             path: path.join(__dirname, '/dist'),
-            filename: 'script.js'
+            filename: 'script.js',
+            assetModuleFilename: 'asset/[name][ext]'
         },
 
         module: {
@@ -29,6 +31,11 @@ module.exports = (env, options) => {
                 },
 
                 {
+                    test: /\.css$/i,
+                    use: ["style-loader", "css-loader"],
+                  },
+
+                {
                     test: /\.(?:ico|png|jpg|jpeg|svg|gif|webp)$/i,
                     type: 'asset/resource',
                   },
@@ -37,6 +44,10 @@ module.exports = (env, options) => {
 
         plugins: [
             new CleanWebpackPlugin(),
+            new HtmlWebpackPlugin({
+                template: './index.html',
+                favicon: './src/assets/favicon.ico'
+              })
         ]
     }
 
