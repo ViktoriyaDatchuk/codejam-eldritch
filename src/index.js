@@ -11,9 +11,6 @@ window.onload = function() {
     //DifficultyButtons
     setNamesDifficultyButtons();
 
-    //MythicCardBack
-    // setMythicCardBack();
-
     //Game
     ancientClickHandler();
 }
@@ -44,10 +41,6 @@ const setNamesDifficultyButtons = () => {
     }
 }
 
-export const setMythicCardBack = () => {
-    document.querySelector('.card-deck').style.backgroundImage = `url('../src/assets/img/mythicCardBackground.png')`;
-}
-
 const ancientClickHandler = () => {
     const ancientsCards = document.querySelectorAll('.ancients-card');
     const selectCard = document.querySelector('.ancients-cards');
@@ -58,7 +51,7 @@ const ancientClickHandler = () => {
         }
         document.querySelector('.card-wrapper').classList.add('hidden');
         document.querySelector('.select-card').style.backgroundImage = 'none';
-        setMythicCardBack();
+        document.querySelector('.card-deck').classList.remove('visibility');
         const stage = document.querySelectorAll('.stage-title');
         for (let title of stage) {
             title.style.color = 'aliceblue';

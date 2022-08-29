@@ -1,4 +1,3 @@
-import { setMythicCardBack } from "..";
 import ancientsData from "../data/ancients"
 import { createBlueDeckEasy, createBrownDeckEasy, createGreenDeckEasy } from "./Easy";
 import { createBlueDeckHard, createBrownDeckHard, createGreenDeckHard } from "./Hard";
@@ -33,7 +32,7 @@ const setup = (e) => {
     addDifficultyButtonClickHandler(e);
     document.querySelector('.card-wrapper').classList.add('hidden');
     document.querySelector('.select-card').style.backgroundImage = 'none';
-    setMythicCardBack();
+    document.querySelector('.card-deck').classList.remove('visibility');
     const stage = document.querySelectorAll('.stage-title');
     for (let title of stage) {
         title.style.color = 'aliceblue';
@@ -121,7 +120,8 @@ const showCards = () => {
         console.log(selectCard);
         if (thirdStageArray.length === 0) {
             document.querySelectorAll('.stage-title')[2].style.color = 'red';
-            document.querySelector('.card-deck').style.backgroundImage = 'none';
+            // document.querySelector('.card-deck').style.backgroundImage = 'none';
+            document.querySelector('.card-deck').classList.add('visibility');
         }
         if (selectCard.color === 'green') {
             document.querySelectorAll('.green')[2].innerHTML--;
