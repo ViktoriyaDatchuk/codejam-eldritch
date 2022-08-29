@@ -88,7 +88,11 @@ const addShuffleDeckButtonHandler = (e) => {
 const showCards = () => {
     if (firstStageArray.length > 0) {
         const selectCard = firstStageArray.pop();
-        document.querySelector('.select-card').style.backgroundImage = `url('${selectCard.cardFace}')`;
+        const img = new Image();
+        img.src = `${selectCard.cardFace}`;
+        img.onload = () => {
+            document.querySelector('.select-card').style.backgroundImage = `url('${img.src}')`;
+        }
         console.log(selectCard);
         if (firstStageArray.length === 0) {
             document.querySelectorAll('.stage-title')[0].style.color = 'red';
@@ -102,7 +106,11 @@ const showCards = () => {
         }
     } else if (secondStageArray.length > 0) {
         const selectCard = secondStageArray.pop();
-        document.querySelector('.select-card').style.backgroundImage = `url('${selectCard.cardFace}')`;
+        const img = new Image();
+        img.src = `${selectCard.cardFace}`;
+        img.onload = () => {
+            document.querySelector('.select-card').style.backgroundImage = `url('${img.src}')`;
+        }
         console.log(selectCard);
         if (secondStageArray.length === 0) {
             document.querySelectorAll('.stage-title')[1].style.color = 'red';
@@ -116,11 +124,14 @@ const showCards = () => {
         }
     } else if (thirdStageArray.length > 0) {
         const selectCard = thirdStageArray.pop();
-        document.querySelector('.select-card').style.backgroundImage = `url('${selectCard.cardFace}')`;
+        const img = new Image();
+        img.src = `${selectCard.cardFace}`;
+        img.onload = () => {
+            document.querySelector('.select-card').style.backgroundImage = `url('${img.src}')`;
+        }
         console.log(selectCard);
         if (thirdStageArray.length === 0) {
             document.querySelectorAll('.stage-title')[2].style.color = 'red';
-            // document.querySelector('.card-deck').style.backgroundImage = 'none';
             document.querySelector('.card-deck').classList.add('visibility');
         }
         if (selectCard.color === 'green') {
