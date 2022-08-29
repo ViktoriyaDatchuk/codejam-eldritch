@@ -133,7 +133,6 @@
 
   .card-deck {
     background-image: url(../assets/img/mythicCardBackground.png);
-    transition: visibility 0;
   }
 
   .ancients-cards {
