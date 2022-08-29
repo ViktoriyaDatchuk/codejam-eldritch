@@ -1,6 +1,7 @@
 const { default: ancientsData } = require("./data/ancients");
 const { default: difficulties } = require("./data/difficulties");
 const { startGame } = require("./js/Game");
+import "./css/style.css";
 
 window.onload = function() {
     //AncientsImages
