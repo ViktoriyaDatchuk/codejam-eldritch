@@ -131,6 +131,10 @@
     transition: all 1s linear;
   }
 
+  .card-deck {
+    background-image: url(../assets/img/mythicCardBackground.png);
+  }
+
   .ancients-cards {
     display: flex;
     justify-content: space-between;

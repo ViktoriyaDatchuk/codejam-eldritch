@@ -12,7 +12,7 @@ window.onload = function() {
     setNamesDifficultyButtons();
 
     //MythicCardBack
-    setMythicCardBack();
+    // setMythicCardBack();
 
     //Game
     ancientClickHandler();
