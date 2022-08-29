@@ -45,7 +45,7 @@ const setNamesDifficultyButtons = () => {
 }
 
 export const setMythicCardBack = () => {
-    document.querySelector('.card-deck').style.backgroundImage = `url('../dist/asset/mythicCardBackground.png')`;
+    document.querySelector('.card-deck').style.backgroundImage = `url('../src/assets/img/mythicCardBackground.png')`;
 }
 
 const ancientClickHandler = () => {
